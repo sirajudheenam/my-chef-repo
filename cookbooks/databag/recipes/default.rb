@@ -70,3 +70,8 @@ cookbook_file "#{Chef::Config[:data_bag_path]}/users/user1.json" do
   source 'databag.json'
   action :create
 end
+
+secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")
+creds = Chef::EncryptedDataBagItem.load("users", "user1", secret)
+log creds['name']
+log password=creds['password']
