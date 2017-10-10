@@ -54,3 +54,19 @@ template '/tmp/chef_configuration' do
   group 'root'
   source 'chef_config.erb'
 end
+
+directory "#{Chef::Config[:data_bag_path]}/users" do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+# cookbook_file "/var/chef/data_bags/users.json" do
+cookbook_file "#{Chef::Config[:data_bag_path]}/users/user1.json" do
+  owner 'root'
+  group 'root'
+  mode '0644'
+  source 'databag.json'
+  action :create
+end
