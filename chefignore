@@ -77,9 +77,9 @@ Rakefile
 
 # Berkshelf #
 #############
-Berksfile
-Berksfile.lock
-cookbooks/*
+#Berksfile
+#Berksfile.lock
+#cookbooks/*
 tmp
 
 # Policyfile #
