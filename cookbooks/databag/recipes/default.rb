@@ -74,4 +74,4 @@ end
 secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")
 creds = Chef::EncryptedDataBagItem.load("users", "user1", secret)
 log creds['name']
-log password=creds['password']
+log creds['password']
